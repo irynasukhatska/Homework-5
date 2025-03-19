@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           
-        const SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           Container(
             padding: EdgeInsets.all(10),
@@ -62,9 +62,51 @@ class MyHomePage extends StatelessWidget {
                 )
               ]
             ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Center(
+                child:Image.asset(
+                  'assets/jpg/1.jpg',
+                  width: 200,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
-        ],
-      )
+
+          const SizedBox(height: 20),
+
+          Container(
+            padding: EdgeInsets.all(10),
+            width: 200,
+            height: 200,
+            alignment: Alignment.topCenter,
+            decoration: BoxDecoration(
+              border: Border.all(color:const Color.fromARGB(255, 144, 133, 148)),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Center(
+                child: Image.network('https://fastly.picsum.photos/id/200/1920/1280.jpg?hmac=-eKjMC8-UrbLMpy1A4OWrK0feVPB3Ka5KNOGibQzpRU'),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          const Text(
+            "My text",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.red,
+              fontStyle: FontStyle.italic,
+            ),
+          ),  
+        ], 
+      
+      ),
      ),
    );
   }
