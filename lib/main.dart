@@ -30,7 +30,8 @@ class MyHomePage extends StatelessWidget {
         ),
       backgroundColor: Colors.transparent,
       ),
-      body: Center(
+      body: SingleChildScrollView(
+      child: Center (
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -51,7 +52,8 @@ class MyHomePage extends StatelessWidget {
             height: 200,
             alignment: Alignment.topCenter,
             decoration: BoxDecoration(
-              border: Border.all(color:const Color.fromARGB(255, 144, 133, 148)),
+              gradient: LinearGradient(colors: [ const Color.fromARGB(66, 205, 163, 236), const Color.fromARGB(136, 155, 104, 213) ]),
+              border: Border.all(color:const Color.fromARGB(255, 123, 106, 170)),
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
@@ -68,6 +70,7 @@ class MyHomePage extends StatelessWidget {
                 child:Image.asset(
                   'assets/jpg/1.jpg',
                   width: 200,
+                  height: 200,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -104,10 +107,35 @@ class MyHomePage extends StatelessWidget {
               fontStyle: FontStyle.italic,
             ),
           ),  
+
+          const SizedBox(height: 40),
+          buildImageContainer('https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'),
         ], 
       
+      ),
       ),
      ),
    );
   }
  }
+
+ Widget buildImageContainer(String imageUrl) {
+  return Container(
+    padding: EdgeInsets.all(10),
+    width: 200,
+    height: 200,
+    decoration: BoxDecoration(
+      border: Border.all(color: Colors.grey),
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Image.network(
+        imageUrl,
+        width: 200,
+        height: 200,
+        fit: BoxFit.cover,
+      ),
+    ),
+  );
+}
